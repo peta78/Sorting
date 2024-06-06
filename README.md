@@ -22,4 +22,4 @@ Done
 
 
 
-Simple idea behind this code is O(n log n) > O(n log (n/m)). (Yes, if you do a good job you can get close to O(n)...)
+Simple idea behind this code is O(n log n) > O(n log (n/m)) = O(m (n/m log(n/m))). (Yes, if you do a good job you can get close to O(n)...)
