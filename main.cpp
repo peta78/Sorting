@@ -34,7 +34,7 @@ int main(void)
 
     std::vector<double> myvector, myvector_orig;
 
-    for(int i=0;i<100000000;i++)
+    for(int i=0;i<300000000;i++)
     {
         double f = (double)rand() / RAND_MAX;
         myvector.push_back(f);
