@@ -4,17 +4,17 @@ Did you know you can sort faster than [quick sort](https://en.wikipedia.org/wiki
 
 This code was written just to inspire, not to be a production code... And there is even way better way (why to sort when you know where things approximately belong?) to do it (without using quicksort)...
 
-Quick sort takes around ~31 seconds, "statistical" sorting took only ~17 seconds on [AMD Ryzen™ 7 8845HS](https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-7-8845hs.html)...
+Quick sort takes around ~25 seconds, "statistical" sorting took only ~15 seconds on [AMD Ryzen™ 7 8845HS](https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-7-8845hs.html)...
 
 ~/Code/Sorting>>>./run.sh
 
 hello
 
-2024-06-06 17:32:44.555
+2024-06-06 17:44:44.609
 
-2024-06-06 17:33:16.042
+2024-06-06 17:45:09.457
 
-2024-06-06 17:33:33.024
+2024-06-06 17:45:23.808
 
 Verifying
 
