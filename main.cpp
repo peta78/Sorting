@@ -32,12 +32,13 @@ int main(void)
 {
     cout << "hello\n";
 
-    std::vector<double> myvector;
+    std::vector<double> myvector, myvector_orig;
 
     for(int i=0;i<100000000;i++)
     {
         double f = (double)rand() / RAND_MAX;
         myvector.push_back(f);
+        myvector_orig.push_back(f);
     }
 
     cout << time_in_HH_MM_SS_MMM() << "\n";
@@ -48,11 +49,11 @@ int main(void)
 
     std::vector<double>* myvectors = new std::vector<double>[MEMSIZE];
 
-    for(int i=0;i<myvector.size();i++)
+    for(int i=0;i<myvector_orig.size();i++)
     {
-        int where = (int)(myvector[i] * (MEMSIZE + 0.0));
+        int where = (int)(myvector_orig[i] * (MEMSIZE + 0.0));
 
-        myvectors[where].push_back(myvector[i]);
+        myvectors[where].push_back(myvector_orig[i]);
     }
 
     for(int i=0;i<MEMSIZE;i++)
