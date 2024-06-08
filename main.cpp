@@ -8,6 +8,7 @@
 #include <iomanip>
 #include <sstream>
 #include <string>
+#include <limits>
 
 using namespace std;
 
@@ -47,11 +48,30 @@ int main(void)
 
     cout << time_in_HH_MM_SS_MMM() << "\n";
 
+    double min, max;
+
+    min = std::numeric_limits<double>::max();
+    max = std::numeric_limits<double>::lowest();
+
+    for(int i=0;i<myvector_orig.size();i++)
+    {
+        if(min>myvector_orig[i])
+        {
+            min = myvector_orig[i];
+        }
+        if(max<myvector_orig[i])
+        {
+            max = myvector_orig[i];
+        }
+    }
+
+    max += 0.0001 * (max-min);
+
     std::vector<double>* myvectors = new std::vector<double>[MEMSIZE];
 
     for(int i=0;i<myvector_orig.size();i++)
     {
-        int where = (int)(myvector_orig[i] * (MEMSIZE + 0.0));
+        int where = (int)((myvector_orig[i]-min) * (MEMSIZE + 0.0) / (max-min));
 
         myvectors[where].push_back(myvector_orig[i]);
     }
