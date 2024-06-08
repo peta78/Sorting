@@ -9,6 +9,8 @@
 #include <sstream>
 #include <string>
 #include <limits>
+#include <pthread.h>
+#include <thread>
 
 using namespace std;
 
@@ -27,19 +29,105 @@ std::string time_in_HH_MM_SS_MMM()
     return oss.str();
 }
 
+std::vector<double>* myvectors;
+int numThreads = 1;
+
 #define MEMSIZE 100000
+void *wait(void *t) {
+    int tid;
+
+    tid = (long)t;
+
+    for(int i=tid;i<MEMSIZE;i += numThreads)
+    {
+        std::sort (myvectors[i].begin(), myvectors[i].end());
+    }
+
+    pthread_exit(NULL);
+}
+
+void statsort(vector<double> &vec, int _numThreads)
+{
+    double min, max;
+
+    numThreads = _numThreads;
+
+    min = std::numeric_limits<double>::max();
+    max = std::numeric_limits<double>::lowest();
+
+    for(int i=0;i<vec.size();i++)
+    {
+        if(min>vec[i])
+        {
+            min = vec[i];
+        }
+        if(max<vec[i])
+        {
+            max = vec[i];
+        }
+    }
+
+    max += 0.0001 * (max-min);
+
+    myvectors = new std::vector<double>[MEMSIZE];
+
+    for(int i=0;i<vec.size();i++)
+    {
+        int where = (int)((vec[i]-min) * (MEMSIZE + 0.0) / (max-min));
+
+        myvectors[where].push_back(vec[i]);
+    }
+
+    pthread_t *threads = new pthread_t[numThreads];
+    pthread_attr_t attr;
+    void *status;
+    int rc;
+
+    pthread_attr_init(&attr);
+    pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
+
+    for(int i = 0; i < numThreads; i++ ) {
+        rc = pthread_create(&threads[i], &attr, wait, (void *)((long)i));
+        if (rc) {
+            cout << "Error:unable to create thread," << rc << endl;
+            exit(-1);
+        }
+    }
+
+    // free attribute and wait for the other threads
+    pthread_attr_destroy(&attr);
+    for(int i = 0; i < numThreads; i++ ) {
+        rc = pthread_join(threads[i], &status);
+        if (rc) {
+            cout << "Error:unable to join," << rc << endl;
+            exit(-1);
+        }
+    }
+
+    vec.clear();
+    for(int i=0;i<MEMSIZE;i++)
+    {
+        for(int j=0;j<myvectors[i].size();j++)
+        {
+            vec.push_back(myvectors[i][j]);
+        }
+    }
+    delete[] myvectors;
+}
 
 int main(void)
 {
     cout << "hello\n";
 
-    std::vector<double> myvector, myvector_orig;
+    std::vector<double> myvector, myvector2, myvector3;
 
-    for(int i=0;i<300000000;i++)
+    for(int i=0;i<250000000;i++)
     {
         double f = (double)rand() / RAND_MAX;
+
         myvector.push_back(f);
-        myvector_orig.push_back(f);
+        myvector2.push_back(f);
+        myvector3.push_back(f);
     }
 
     cout << time_in_HH_MM_SS_MMM() << "\n";
@@ -48,59 +136,26 @@ int main(void)
 
     cout << time_in_HH_MM_SS_MMM() << "\n";
 
-    double min, max;
+    statsort(myvector2, 1);
 
-    min = std::numeric_limits<double>::max();
-    max = std::numeric_limits<double>::lowest();
+    cout << time_in_HH_MM_SS_MMM() << "\n";
 
-    for(int i=0;i<myvector_orig.size();i++)
-    {
-        if(min>myvector_orig[i])
-        {
-            min = myvector_orig[i];
-        }
-        if(max<myvector_orig[i])
-        {
-            max = myvector_orig[i];
-        }
-    }
+    cout << "Number of Threads " << std::thread::hardware_concurrency() << "\n";
 
-    max += 0.0001 * (max-min);
-
-    std::vector<double>* myvectors = new std::vector<double>[MEMSIZE];
-
-    for(int i=0;i<myvector_orig.size();i++)
-    {
-        int where = (int)((myvector_orig[i]-min) * (MEMSIZE + 0.0) / (max-min));
-
-        myvectors[where].push_back(myvector_orig[i]);
-    }
-
-    for(int i=0;i<MEMSIZE;i++)
-    {
-        std::sort (myvectors[i].begin(), myvectors[i].end());
-    }
+    statsort(myvector3, std::thread::hardware_concurrency());
 
     cout << time_in_HH_MM_SS_MMM() << "\n";
 
     cout << "Verifying\n";
 
-    int pos = 0;
-    int loc = 0;
     for(int i=0;i<myvector.size();i++)
     {
-        if(myvector[i] != myvectors[loc][pos])
+        if(myvector[i] != myvector2[i] || myvector[i] != myvector3[i])
         {
-            cout << "Error!!!\n";
-        }
-        pos++;
-        if(pos==myvectors[loc].size())
-        {
-            loc++;
-            pos = 0;
+            cout << "ERROR\n";
+            exit(-1);
         }
     }
-    delete[] myvectors;
 
     cout << "Done\n";
 
