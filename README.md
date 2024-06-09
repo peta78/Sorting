@@ -26,4 +26,4 @@ Done
 
 
 
-Simple idea behind this code for single-thread execution is O(n log n) > O(n log (n/m)) = O(m (n/m log(n/m))). (Yes, if you do a good job without quicksort you can get close to O(n)... But there is a lot of obstacles ;) )
+Simple idea behind this code for single-thread execution is O(n log n) > O(n log (n/m)) = O(m (n/m log(n/m))). (Yes, if you do a good job without quicksort you can get close to O(n)... But there are obstacles ;) )
