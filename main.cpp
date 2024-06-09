@@ -33,7 +33,7 @@ std::vector<double>* myvectors;
 int numThreads = 1;
 
 #define MEMSIZE 100000
-void *wait(void *t) {
+void *thread_sort(void *t) {
     int tid;
 
     tid = (long)t;
@@ -87,7 +87,7 @@ void statsort(vector<double> &vec, int _numThreads)
     pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
 
     for(int i = 0; i < numThreads; i++ ) {
-        rc = pthread_create(&threads[i], &attr, wait, (void *)((long)i));
+        rc = pthread_create(&threads[i], &attr, thread_sort, (void *)((long)i));
         if (rc) {
             cout << "Error:unable to create thread," << rc << endl;
             exit(-1);
