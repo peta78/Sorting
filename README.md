@@ -8,21 +8,13 @@ Quick sort takes around ~20.262 seconds, "statistical" sorting took only ~12.487
 
 ```
 ~/Code/Sorting>./run.sh
-
 hello
-
 2024-06-08 14:48:03.562
-
 2024-06-08 14:48:23.824
-
 2024-06-08 14:48:36.311
-
 Number of Threads 16
-
 2024-06-08 14:48:40.726
-
 Verifying
-
 Done
 ```
 
