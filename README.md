@@ -20,3 +20,22 @@ Done
 
 
 Simple idea behind this code for single-threaded execution is O(n log n) > O(n log (n/m)) = O(m (n/m log(n/m))). (Yes, if you do a great job without quicksort you can get close to O(n)... But there are obstacles ;) )
+
+main_statsort.cpp is a bit improved implementation, which can be further improved?
+
+quicksort ~ 21.478s
+
+stat sort ~ 13.198s
+
+stat sort multi threaded ~ 3.331s
+
+```
+./run.sh
+Hello
+2024-06-14 09:51:03.131
+2024-06-14 09:51:24.609
+2024-06-14 09:51:37.807
+2024-06-14 09:51:41.138
+Verifying
+Done
+```
