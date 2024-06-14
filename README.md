@@ -19,7 +19,7 @@ Done
 ```
 
 
-Simple idea behind this code for single-threaded execution is O(n log n) > O(n log (n/m)) = O(m (n/m log(n/m))). (Yes, if you do a great job without quicksort you can get close to O(n)... But there are obstacles ;) )
+Simple idea behind this code for single-threaded execution is O(n log n) > O(n log (n/m)) = O(m (n/m log(n/m))). (Yes, if you do a great job without quicksort you can get close to O(n)...)
 
 main_statsort.cpp is a bit improved implementation, which can be further improved?
 
