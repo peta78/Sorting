@@ -1,7 +1,7 @@
 rm main
-rm log.csv
+rm *.csv
+rm *.png
 g++ main.cpp -o main -Ofast
 
-./main >> log.csv
-
+./main Gauss
 python3 plotit.py

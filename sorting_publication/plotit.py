@@ -69,11 +69,30 @@ print(y2)
 y1t, y1name = theory(x, y1)
 y2t, y2name = theory(x, y2)
 
-plt.plot(x, y1, 'b', label='Quick Sort')
-plt.plot(x, y2, 'r', label='Taraba Gauss')
+plt.figure(figsize=(15, 10))
 
-plt.plot(x, y1t, 'b-.', label='Quick Sort ' + y1name)
-plt.plot(x, y2t, 'r-.', label='Taraba Gauss ' + y2name)
+plt.plot(x, y1, 'b', label='Intro Sort')
+plt.plot(x, y2, 'r', label='Stat Sort')
+
+plt.plot(x, y1t, 'b-.', label='Intro Sort ' + y1name)
+plt.plot(x, y2t, 'r-.', label='Stat Sort ' + y2name)
+
+plt.xlabel('vector size')
+plt.ylabel('time')
 
 plt.legend()
-plt.show()
+plt.savefig('Figure_1.png')
+plt.close()
+
+f = open('dist.csv', 'rt')
+array = []
+for line in f:
+    array.append(float(line))
+
+plt.figure(figsize=(15, 10))
+plt.hist(array, bins=1000, density=True)
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+plt.title('Histogram of Data')
+plt.savefig('Figure_2.png')
+plt.close()
