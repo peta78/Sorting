@@ -2,6 +2,7 @@ from datetime import datetime
 import matplotlib.pyplot as plt
 import math
 import numpy as np
+import sys
 
 
 def theory(x,y):
@@ -37,6 +38,8 @@ def theory(x,y):
 
     return yy, oname
 
+print(  )
+
 fn = 'log.csv'
 
 f = open(fn, 'rt')
@@ -47,7 +50,7 @@ y1 = []
 y2 = []
 for line in lines:
     parts = line.split(',')
-    if len(parts) < 2:
+    if len(parts) != 7:
         break
 
     s1 = datetime.strptime(parts[3], "%Y-%m-%d %H:%M:%S.%f")
@@ -81,7 +84,7 @@ plt.xlabel('vector size')
 plt.ylabel('time')
 
 plt.legend()
-plt.savefig('Figure_1.png')
+plt.savefig('fig_perf_' + sys.argv[1] + '.png')
 plt.close()
 
 f = open('dist.csv', 'rt')
@@ -94,5 +97,5 @@ plt.hist(array, bins=1000, density=True)
 plt.xlabel('Value')
 plt.ylabel('Frequency')
 plt.title('Histogram of Data')
-plt.savefig('Figure_2.png')
+plt.savefig('fig_dist_' + sys.argv[1] + '.png')
 plt.close()

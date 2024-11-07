@@ -109,8 +109,8 @@ enum Distribution {
 int main(int argc, char **argv)
 {
     long int min_size = 10000;
-    long int max_size = 200000000;
-    int num_sizes = 100;
+    long int max_size = 500000000;
+    int num_sizes = 200;
 
     cout << argc << ",";
     for(int i=0;i<argc;i++)
