@@ -103,7 +103,8 @@ void statsort(vector<double> &vec)
 
 enum Distribution {
     Uniform,
-    Gauss
+    Gauss,
+    Weird
 };
 
 int main(int argc, char **argv)
@@ -120,13 +121,17 @@ int main(int argc, char **argv)
     cout << "\n";
 
     enum Distribution dist;
-    if(argc==1 || strcmp(argv[1],"norm")==0)
+    if(argc==1 || strcmp(argv[1],"uniform")==0)
     {
         dist = Uniform;
     }
-    else
+    else if(strcmp(argv[1],"gauss")==0)
     {
         dist = Gauss;
+    }
+    else
+    {
+        dist = Weird;
     }
 
     ofstream logfile, distfile;
@@ -150,9 +155,14 @@ int main(int argc, char **argv)
             {
                 f = randomUniform();
             }
-            else
+            else if(dist == Gauss)
             {
                 f = gaussRandom();
+            }
+            else
+            {
+                f = randomUniform();
+                f = f * f;
             }
 
             myvector.push_back(f);
