@@ -1,5 +1,7 @@
 # Statistical Sorting
 
+[First draft of the publication](./sorting_publication/Sorting/sorting.pdf)
+
 Did you know you can sort faster than [quick sort](https://en.wikipedia.org/wiki/Quicksort) - [C++ sort implementation in O(n log(n))](https://cplusplus.com/reference/algorithm/sort/)?
 
 This code was written just to inspire, not to be a production code... And there is even way better way (why to sort when you know where things approximately belong?) to do it (without using quicksort)...
