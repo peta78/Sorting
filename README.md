@@ -1,7 +1,10 @@
 # Statistical Sorting
 ## Why would you sort when you know where things approximately belong?
 
-[First draft of the publication](./sorting_publication/Sorting/sorting2.pdf)
+[Second draft of the publication](./sorting_publication/Sorting/sorting2.pdf)
+
+Also available on:
+[Authorea](https://doi.org/10.22541/au.173145007.70152282/v1)
 
 Did you know you can sort faster than [quick sort](https://en.wikipedia.org/wiki/Quicksort) - [C++ sort implementation in O(n log(n))](https://cplusplus.com/reference/algorithm/sort/)?
 
