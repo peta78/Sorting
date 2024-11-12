@@ -10,7 +10,7 @@ Cite as: Peter Taraba. Why would you sort when you know where things approximate
 
 [Code for Statistical sorting in O(n) publication](./sorting_publication/)
 
-## Previously... (publication is based on this previous experiment)
+## Previously... (publication is based on these previous experiments)
 
 Did you know you can sort faster than [quick sort](https://en.wikipedia.org/wiki/Quicksort) - [C++ sort implementation in O(n log(n))](https://cplusplus.com/reference/algorithm/sort/)?
 
