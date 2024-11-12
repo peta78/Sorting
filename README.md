@@ -1,4 +1,5 @@
 # Statistical Sorting
+## Why would you sort when you know where things approximately belong?
 
 [First draft of the publication](./sorting_publication/Sorting/sorting.pdf)
 
