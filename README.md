@@ -3,10 +3,7 @@
 
 [Second draft of the publication](./sorting_publication/Sorting/sorting2.pdf)
 
-Also available on:
-[Authorea](https://doi.org/10.22541/au.173145007.70152282/v1)
-
-Cite as: Peter Taraba. Why would you sort when you know where things approximately belong?. Authorea. November 12, 2024.
+Also available on & cite as: Peter Taraba. [Why would you sort when you know where things approximately belong?](https://doi.org/10.22541/au.173145007.70152282/v1). Authorea. November 12, 2024.
 
 [Code for Statistical sorting in O(n) publication](./sorting_publication/)
 
