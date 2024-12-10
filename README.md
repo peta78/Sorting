@@ -13,7 +13,7 @@ Did you know you can sort faster than [quick sort](https://en.wikipedia.org/wiki
 
 This code was written just to inspire, not to be a production code... And there is even way better way (why to sort when you know where things approximately belong?) to do it (without using quicksort)...
 
-Quick sort takes around ~20.262 seconds, "statistical" sorting took only ~12.487 seconds with [AMD Ryzen™ 7 8845HS](https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-7-8845hs.html) on [linux](https://kernel.org/) [Manjaro](https://manjaro.org/) on a [Lenovo](https://www.lenovo.com/) [IdeaPad](https://www.lenovo.com/us/en/c/laptops/ideapad/)... And if you use multi-threading, it can get to ~4.415 seconds on 16-threads already mentioned AMD processor.
+Quick sort takes around ~20.262 seconds, "statistical" sorting took only ~12.487 seconds with [AMD Ryzen™ 7 8845HS](https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-7-8845hs.html) on [linux](https://kernel.org/) on a [Lenovo](https://www.lenovo.com/) [IdeaPad](https://www.lenovo.com/us/en/c/laptops/ideapad/)... And if you use multi-threading, it can get to ~4.415 seconds on 16-threads already mentioned AMD processor.
 
 ```
 ~/Code/Sorting>./run.sh
