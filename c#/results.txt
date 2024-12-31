@@ -1,0 +1,41 @@
+Microsoft Windows [Version 10.0.22631.3737]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\user>
+
+_________________________________________________________________________
+
+
+PS C:\Users\user\Documents> .\run.bat
+
+C:\Users\user\Documents>del .\sort.exe
+
+C:\Users\user\Documents>C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe .\sort.cs
+Microsoft (R) Visual C# Compiler version 4.8.9232.0
+for C# 5
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+This compiler is provided as part of the Microsoft (R) .NET Framework, but only supports language versions up to C# 5, which is no longer the latest version. For compilers that support newer versions of the C# programming language, see http://go.microsoft.com/fwlink/?LinkID=533240
+
+
+C:\Users\user\Documents>.\sort.exe
+Hello, World!
+5578
+3813
+PS C:\Users\user\Documents> .\run.bat
+
+C:\Users\user\Documents>del .\sort.exe
+
+C:\Users\user\Documents>C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe .\sort.cs
+Microsoft (R) Visual C# Compiler version 4.8.9232.0
+for C# 5
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+This compiler is provided as part of the Microsoft (R) .NET Framework, but only supports language versions up to C# 5, which is no longer the latest version. For compilers that support newer versions of the C# programming language, see http://go.microsoft.com/fwlink/?LinkID=533240
+
+
+C:\Users\user\Documents>.\sort.exe
+Hello, World!
+5484
+3782
+PS C:\Users\user\Documents>
