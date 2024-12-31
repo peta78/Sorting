@@ -5,7 +5,7 @@ public class HelloWorld
 {
     public static int Sort(List<double> v)
     {
-	if(v.Count < 100)
+	if(v.Count < 150)
 	{
 		v.Sort();
 		return 0;
@@ -57,7 +57,13 @@ public class HelloWorld
     {
 	Random r = new Random();
 	List<double> v1, v2;
-	int size = 50000000;
+	int minsize = 1000;
+	int maxsize = 10000000;
+	int trials = 100;
+
+	for(int q=0;q<trials;q++)
+	{
+	int size = minsize + (maxsize-minsize) * q / (trials-1);
 
 	v1 = new List<double>();
 	v2 = new List<double>();
@@ -68,11 +74,11 @@ public class HelloWorld
 		v2.Add(rn);
 	}
 
-	long t1 = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
+	double t1 = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
 	v1.Sort();
-	long t2 = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
+	double t2 = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
 	Sort(v2);
-	long t3 = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
+	double t3 = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
 
 	for(int i=0;i<v1.Count;i++)
 	{
@@ -83,10 +89,9 @@ public class HelloWorld
 		}
 	}
 
-	
-        Console.WriteLine("Hello, World!");
-	Console.WriteLine(t2-t1);
-	Console.WriteLine(t3-t2);
+	Console.WriteLine("{0},{1},{2}",v1.Count,(t2-t1)/1000.0,(t3-t2)/1000.0);
+
+	}
 
 	return 0;
     }
