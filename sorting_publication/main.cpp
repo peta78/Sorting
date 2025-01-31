@@ -46,6 +46,41 @@ double gaussRandom()
     return u*c;
 }
 
+void statsort(vector<double> &vec, double min, double max)
+{
+    int memsize = sqrt(vec.size());
+    std::vector<double> *myvectors = new std::vector<double>[memsize];
+
+    for(long int i=0;i<vec.size();i++)
+    {
+        long int where = (int)((vec[i]-min) * (memsize + 0.0) / (max-min));
+
+        myvectors[where].push_back(vec[i]);
+    }
+
+    for(long int i=0;i<memsize;i++)
+    {
+        if(myvectors[i].size()>10)
+        {
+            statsort(myvectors[i], min+(i+0.0)*(max-min)/memsize, min+(i+1.0)*(max-min)/memsize);
+        }
+        else
+        {
+            std::sort (myvectors[i].begin(), myvectors[i].end());
+        }
+    }
+
+    vec.clear();
+    for(long int i=0;i<memsize;i++)
+    {
+        for(int j=0;j<myvectors[i].size();j++)
+        {
+            vec.push_back(myvectors[i][j]);
+        }
+    }
+    delete[] myvectors;
+}
+
 void statsort(vector<double> &vec)
 {
     double min, max;
@@ -66,39 +101,7 @@ void statsort(vector<double> &vec)
     }
 
     max += 0.0001 * (max-min);
-
-    int memsize = sqrt(vec.size());
-
-    std::vector<double> *myvectors = new std::vector<double>[memsize];
-
-    for(long int i=0;i<vec.size();i++)
-    {
-        long int where = (int)((vec[i]-min) * (memsize + 0.0) / (max-min));
-
-        myvectors[where].push_back(vec[i]);
-    }
-
-    for(long int i=0;i<memsize;i++)
-    {
-        if(myvectors[i].size()>10)
-        {
-            statsort(myvectors[i]);
-        }
-        else
-        {
-            std::sort (myvectors[i].begin(), myvectors[i].end());
-        }
-    }
-
-    vec.clear();
-    for(long int i=0;i<memsize;i++)
-    {
-        for(int j=0;j<myvectors[i].size();j++)
-        {
-            vec.push_back(myvectors[i][j]);
-        }
-    }
-    delete[] myvectors;
+    statsort(vec, min, max);
 }
 
 enum Distribution {
@@ -175,14 +178,17 @@ int main(int argc, char **argv)
         }
 
         logfile << time_in_HH_MM_SS_MMM() << "," << std::flush;
+        cout << time_in_HH_MM_SS_MMM() << "," << std::flush;
 
         std::sort (myvector.begin(), myvector.end());
 
         logfile << time_in_HH_MM_SS_MMM() << "," << std::flush;
+        cout << time_in_HH_MM_SS_MMM() << "," << std::flush;
 
         statsort(myvector2);
 
         logfile << time_in_HH_MM_SS_MMM() << "," << std::flush;
+        cout << time_in_HH_MM_SS_MMM() << "," << std::flush;
 
         cout << "Verifying," << std::flush;
 
