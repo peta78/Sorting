@@ -1,7 +1,11 @@
 # Statistical Sorting
 ## Why would you sort when you know where things approximately belong?
 
+[First draft of the publication](./sorting_publication/Sorting/sorting1.pdf)
+
 [Second draft of the publication](./sorting_publication/Sorting/sorting2.pdf)
+
+[Third draft of the publication](./sorting_publication/Sorting/sorting3.pdf)
 
 Also available on & cite as: Peter Taraba. [Why would you sort when you know where things approximately belong?](https://doi.org/10.22541/au.173145007.70152282/v1). Authorea. November 12, 2024.
 
