@@ -1,7 +1,7 @@
 # Statistical Sorting
 ## Why would you sort when you know where things approximately belong?
 
-[First draft of the publication](./sorting_publication/Sorting/sorting1.pdf)
+[First draft of the publication](./sorting_publication/Sorting/sorting.pdf)
 
 [Second draft of the publication](./sorting_publication/Sorting/sorting2.pdf)
 
