@@ -9,7 +9,7 @@
 
 Also available on & cite as: Peter Taraba. [Why would you sort when you know where things approximately belong?](https://doi.org/10.22541/au.173145007.70152282/v1). Authorea. November 12, 2024.
 
-[Code for Statistical sorting in O(n) publication](./sorting_publication/)
+[Code for Statistical sorting in O(n log log n) publication](./sorting_publication/)
 
 ## Previously... (publication is based on these previous experiments)
 
