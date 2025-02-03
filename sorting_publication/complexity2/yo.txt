@@ -1,0 +1,23 @@
+T:\user2\Downloads\Sorting-main\sorting_publication\complexity2>py plotit.py uniform
+O(n) O(n log n) O(n log log n)
+2273 14140 3288
+0.8203194466564462 0.11533987133766 0.5241276347028287
+O(n) O(n log n) O(n log log n)
+5100 5792 8809
+0.4004177472527306 0.5254033343388222 0.13514540162494204
+
+T:\user2\Downloads\Sorting-main\sorting_publication\complexity2>py plotit.py gauss
+O(n) O(n log n) O(n log log n)
+3114 13276 3311
+0.8323395374683199 0.12919654059320695 0.5372355311967951
+O(n) O(n log n) O(n log log n)
+11549 2639 5513
+0.250812908265941 0.6968908912205685 0.11325732439283023
+
+T:\user2\Downloads\Sorting-main\sorting_publication\complexity2>py plotit.py weird
+O(n) O(n log n) O(n log log n)
+2151 14927 2623
+0.8006852593067546 0.132344747628135 0.504294705011667
+O(n) O(n log n) O(n log log n)
+5505 4733 9463
+0.36385569121367356 0.5602786927528958 0.09536794171209814
