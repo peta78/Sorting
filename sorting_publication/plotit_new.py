@@ -267,9 +267,9 @@ for line in lines:
     s2 = datetime.strptime(parts[4], "%Y-%m-%d %H:%M:%S.%f")
     s3 = datetime.strptime(parts[5], "%Y-%m-%d %H:%M:%S.%f")
 
-    x.append(int(parts[2]))
-    y1.append((s2-s1).total_seconds())
-    y2.append((s3-s2).total_seconds())
+    x.append(float(parts[2]))
+    y1.append(float((s2-s1).total_seconds()))
+    y2.append(float((s3-s2).total_seconds()))
 
 x = np.array(x)
 y1 = np.array(y1)
