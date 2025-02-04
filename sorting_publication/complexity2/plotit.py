@@ -31,6 +31,7 @@ def plotdist(x,y, which):
     win1 = 0
     win2 = 0
     win3 = 0
+    draws = 0
     for i in range(1,len(x)):
         for j in range(i+1,len(x)):
             real = y[j]/y[i]
@@ -48,10 +49,17 @@ def plotdist(x,y, which):
                 win2 += 1
             elif abs(real-onloglogn)<abs(real-on) and abs(real-onloglogn)<abs(real-onlogn):
                 win3 += 1
+            else:
+                draws += 1
+                print(abs(real-onloglogn),(real-on),abs(real-onlogn))
 
     print('O(n)', 'O(n log n)', 'O(n log log n)')
-    print(win1,win2,win3)
+    print(win1,win2,win3, draws)
     print(sum(difs1)/len(difs1),sum(difs2)/len(difs2),sum(difs3)/len(difs3))
+    
+    print((len(x)-2)*(len(x)-1)//2)
+    print(win1+win2+win3+draws)
+
     plt.figure(figsize=(15, 10))
     plt.hist(difs1,bins=100, color='r', histtype='step', density=True, label='O(n)')
     plt.hist(difs2,bins=100, color='g', histtype='step', density=True, label='O(n log n)')
