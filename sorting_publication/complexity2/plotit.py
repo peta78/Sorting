@@ -44,9 +44,9 @@ def plotdist(x,y, which):
 
             if abs(real-on)<abs(real-onlogn) and abs(real-on)<abs(real-onloglogn):
                 win1 += 1
-            elif abs(real-onlogn)<abs(real-onloglogn):
+            elif abs(real-onlogn)<abs(real-onloglogn) and abs(real-onlogn)<abs(real-on):
                 win2 += 1
-            else:
+            elif abs(real-onloglogn)<abs(real-on) and abs(real-onloglogn)<abs(real-onlogn):
                 win3 += 1
 
     print('O(n)', 'O(n log n)', 'O(n log log n)')
