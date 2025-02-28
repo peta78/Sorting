@@ -99,7 +99,7 @@ void statsort(vector<double> &vec)
             max = vec[i];
         }
     }
-
+    // next line can be naturallly improved. instead this, it should be go to next float number larger than max and update max to it.
     max += 0.0001 * (max-min);
     statsort(vec, min, max);
 }
