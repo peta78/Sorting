@@ -1,4 +1,4 @@
-Entire code to create tables and graphs for the [Statistical sorting in O(n log log n) publication](./Sorting/sorting9.pdf)
+Entire code to create tables and graphs for the [Statistical sorting in O(n log log n) publication](./Sorting/sorting10.pdf)
 
 Just execute ./run.sh on [Linux](https://www.kernel.org/)
 
